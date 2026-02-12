@@ -22,9 +22,10 @@ if (SCRIPT.includes('astro build')) {
 // https://astro.build/config
 export default defineConfig({
     site: base_url,
-    integrations: [mdx(), react(), tailwind({
-        applyBaseStyles: false,
-    }), icon(), sitemap()],
+    output: "static",
+    integrations: [mdx(), react(), tailwind(
+        // {applyBaseStyles: false,}
+), icon(), sitemap()],
     markdown: {
         shikiConfig: {
             theme: 'plastic',

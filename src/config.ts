@@ -1,6 +1,17 @@
+const LIVE_URL = 'https://LANcedillo.github.io/portafolio';
+const DEV_URL = 'http://localhost:3000/';
+const SCRIPT = process.env.npm_lifecycle_script || '';
+let base_url = DEV_URL;
+
+if (SCRIPT.includes('astro build')) {
+    base_url = LIVE_URL;
+}
+
+
+
 export const SITE = {
-    website: "https://simple-portfolio.vicbox.dev", // replace this with your deployed domain
-    title: "Simple Portfolio",
+    website: base_url, 
+    title: "Portfolio",
     description: "A simple but beautiful portfolio created with Astro",
     tags: ["portfolio", "Resume cv", "Astro"],
     ogImage: "/og-image.webp",
@@ -9,7 +20,7 @@ export const SITE = {
     lang: "en",
     favicon: "/favicon.png",
     repository: "https://github.com/vito8916/simple-portfolio.git",
-    author: "Victor Alvarado",
+    author: "Luis Angel Cedillo Nahuaca",
     profile: "www.linkedin.com/in/luis-angel-cedillo-52700b199",
 }
 
