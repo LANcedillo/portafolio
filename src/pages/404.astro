@@ -1,5 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const LIVE_URL = 'https://LANcedillo.github.io/portafolio';
+const DEV_URL = '/';
+const SCRIPT = process.env.npm_lifecycle_script || '';
+let base_url = DEV_URL;
+
+if (SCRIPT.includes('astro build')) {
+    base_url = LIVE_URL;
+}
 ---
 
 <Layout title={`404 Not Found |`} description="We're sorry, but the page you're looking for cannot be found. Please check the URL or return to the homepage." scrollSmooth={false}>
@@ -8,7 +17,7 @@ import Layout from "../layouts/Layout.astro";
             <span aria-hidden="true" role="img" aria-label="Shrug Emoji">¯\_(ツ)_/¯</span>
             <h1>404</h1>
             <p>Page Not Found</p>
-            <a href="/" class="my-6 text-lg underline decoration-dashed underline-offset-8" aria-label="back to home">
+            <a href={base_url} class="my-6 text-lg underline decoration-dashed underline-offset-8" aria-label="back to home">
                 Go back home
             </a>
         </div>
